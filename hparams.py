@@ -124,10 +124,10 @@ basic_params.update({
     'adam_beta2': 0.999,
     'use_fixed_test_inputs': False,
 
-    'initial_learning_rate': 0.01,
+    'initial_learning_rate': 0.001,
     'decay_learning_rate_mode': 0, # True in deepvoice2 paper
     'initial_data_greedy': True,
-    'initial_phase_step': 5000,
+    'initial_phase_step': 8000,
     'main_data_greedy_factor': 0,
     'main_data': [''],
     'prioritize_loss': False,
