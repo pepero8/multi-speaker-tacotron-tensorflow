@@ -8,7 +8,7 @@ def f(num):
 basic_params = {
     # Comma-separated list of cleaners to run on text prior to training and eval. For non-English
     # text, you may want to use "basic_cleaners" or "transliteration_cleaners" See TRAINING_DATA.md.
-    'cleaners': 'english_cleaners', #originally korean_cleaners
+    'cleaners': 'korean_cleaners', #originally korean_cleaners
 }
 
 basic_params.update({
@@ -124,10 +124,10 @@ basic_params.update({
     'adam_beta2': 0.999,
     'use_fixed_test_inputs': False,
 
-    'initial_learning_rate': 0.001,
+    'initial_learning_rate': 0.01,
     'decay_learning_rate_mode': 0, # True in deepvoice2 paper
     'initial_data_greedy': True,
-    'initial_phase_step': 8000,
+    'initial_phase_step': 5000,
     'main_data_greedy_factor': 0,
     'main_data': [''],
     'prioritize_loss': False,
