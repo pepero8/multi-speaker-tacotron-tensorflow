@@ -89,6 +89,9 @@ def save_and_plot_fn(args, log_dir, step, loss, prefix):
     save_audio(waveform, audio_path)
 
     info_text = 'step={:d}, loss={:.5f}'.format(step, loss)
+    
+    
+    
     if 'korean_cleaners' in [x.strip() for x in hparams.cleaners.split(',')]:
         log('Training korean : Use jamo')
         plot.plot_alignment(
@@ -100,7 +103,14 @@ def save_and_plot_fn(args, log_dir, step, loss, prefix):
         plot.plot_alignment(
                 align, align_path, info=info_text,
                 text=sequence_to_text(seq,
-                        skip_eos_and_pad=True, combine_jamo=False), isKorean=False) 
+                        skip_eos_and_pad=True, combine_jamo=False), isKorean=False)
+    
+    # added by jaehwan
+    loss_file = '{}_loss.txt'.format(prefix)
+    loss_path = os.path.join(log_dir, loss_file)
+    with open(loss_path, 'a') as f:
+        f.write(str(loss) + '\n')
+    # added by jaehwan
 
 def save_and_plot(sequences, spectrograms,
         alignments, log_dir, step, loss, prefix):
